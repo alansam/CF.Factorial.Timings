@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5ACE848B23FA440200C4CB25 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE848A23FA440200C4CB25 /* main.c */; };
+		5ACE848B23FA440200C4CB25 /* factorial_timings.c in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE848A23FA440200C4CB25 /* factorial_timings.c */; };
+		5ACE849323FA446700C4CB25 /* factorials.c in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE849223FA446700C4CB25 /* factorials.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		5ACE848723FA440200C4CB25 /* CF.Factorial.Timings */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CF.Factorial.Timings; sourceTree = BUILT_PRODUCTS_DIR; };
-		5ACE848A23FA440200C4CB25 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		5ACE848A23FA440200C4CB25 /* factorial_timings.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = factorial_timings.c; sourceTree = "<group>"; };
+		5ACE849123FA446700C4CB25 /* factorials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = factorials.h; sourceTree = "<group>"; };
+		5ACE849223FA446700C4CB25 /* factorials.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = factorials.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +60,9 @@
 		5ACE848923FA440200C4CB25 /* CF.Factorial.Timings */ = {
 			isa = PBXGroup;
 			children = (
-				5ACE848A23FA440200C4CB25 /* main.c */,
+				5ACE848A23FA440200C4CB25 /* factorial_timings.c */,
+				5ACE849223FA446700C4CB25 /* factorials.c */,
+				5ACE849123FA446700C4CB25 /* factorials.h */,
 			);
 			path = CF.Factorial.Timings;
 			sourceTree = "<group>";
@@ -119,7 +124,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ACE848B23FA440200C4CB25 /* main.c in Sources */,
+				5ACE848B23FA440200C4CB25 /* factorial_timings.c in Sources */,
+				5ACE849323FA446700C4CB25 /* factorials.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,9 +244,11 @@
 		5ACE848F23FA440200C4CB25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HD3NHZ5324;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -248,9 +256,11 @@
 		5ACE849023FA440200C4CB25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HD3NHZ5324;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
