@@ -24,6 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5A7B04742423158A00868F24 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5ACE848723FA440200C4CB25 /* CF.Factorial.Timings */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CF.Factorial.Timings; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ACE848A23FA440200C4CB25 /* factorial_timings.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = factorial_timings.c; sourceTree = "<group>"; };
 		5ACE849123FA446700C4CB25 /* factorials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = factorials.h; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		5ACE847E23FA440100C4CB25 = {
 			isa = PBXGroup;
 			children = (
+				5A7B04742423158A00868F24 /* README.md */,
 				5ACE848923FA440200C4CB25 /* CF.Factorial.Timings */,
 				5ACE848823FA440200C4CB25 /* Products */,
 			);
