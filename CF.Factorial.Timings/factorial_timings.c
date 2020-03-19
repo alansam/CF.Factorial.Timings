@@ -7,11 +7,12 @@
 //
 
 //  MARK: - Setup and header includes
-//  TODO: Choose just one!
+//  TODO: Timing tool. Choose just one!
 #define GETRUSAGE_  /* use getrusage()    */
 #undef  GETTOD_     /* use gettimeofday() */
 #undef  CLOCK_      /* use clock()        */
 
+//  TODO: timings tool selector
 #if defined(CLOCK_)
 # include <time.h>
 #endif
@@ -50,6 +51,7 @@ int main(int argc, const char * argv[]) {
   printf("C Version: %ld\n", __STDC_VERSION__);
 #endif
 
+  //  set up table of pointers to factorial calculator functions
   facs ffuns[] = {
     { .fp = fact_u64_iterative, .description = "Iterative", },
     { .fp = fact_u64_recursive, .description = "Recursive", },
@@ -58,12 +60,15 @@ int main(int argc, const char * argv[]) {
   };
   size_t ffuns_c = sizeof(ffuns) / sizeof(*ffuns);
 
+  //  timing loop iteration count
   size_t iters = 5000000;
   size_t iters_flush = 174000;  //  TODO: understand that recursion chokes > 174,000
 
+  //  clear out the pipes and get the system rollong.
   flush_environment_loop(iters_flush);
   flush_environment_recurse(iters_flush, 0);
 
+  //  TODO: timings tool selector
 #if defined(GETTOD_)
   struct timeval tv1, tv2;
 #endif
@@ -76,9 +81,11 @@ int main(int argc, const char * argv[]) {
 
   uint64_t shriek_result = 0;
 
+  //  loop over factorial functions table
   for (size_t fx = 0; fx < ffuns_c; ++fx) {
     facs ffx = ffuns[fx];
 
+//  TODO: timings tool selector
 #if defined(GETTOD_)
     gettimeofday(&tv1, NULL);
 #endif
@@ -90,10 +97,13 @@ int main(int argc, const char * argv[]) {
 #endif
 
     bool overflow = false;
+    //  timed loop. loops for the specified count of iterations
     for (size_t t_ = 0; t_ < iters; ++t_) {
+      //  call the factorial calculator
       shriek_result = ffx.fp(20, &overflow);
     }
 
+//  TODO: timings tool selector
 #if defined(GETRUSAGE_)
     getrusage(RUSAGE_SELF, &rusage2);
 #endif
@@ -109,6 +119,7 @@ int main(int argc, const char * argv[]) {
     printf("%s:\n", ffx.description);
     printf("  20!: %20" PRIu64 ", overflow: %s\n", shriek_result, bof);
 
+//  TODO: timings tool selector
 #if defined(GETTOD_)
     double clock_count;
     clock_count =
@@ -117,12 +128,14 @@ int main(int argc, const char * argv[]) {
     printf("  Total time = %10.6f s\n", clock_count);
 #endif
 
+//  TODO: timings tool selector
 #if defined(CLOCK_)
     double ctime_diff;
     ctime_diff = (double) (tc2 - tc1) / CLOCKS_PER_SEC;
     printf("  CPU Time   = %10.6f s\n", ctime_diff);
 #endif
 
+//  TODO: timings tool selector
 #if defined(GETRUSAGE_)
     double rtval_diffu;
     double rtval_diffs;
@@ -145,6 +158,8 @@ int main(int argc, const char * argv[]) {
 //  MARK: - Static function implementations
 /*
  *  MARK: flush_environment_loop()
+ *
+ *  Burn some cycles. Iteratively.
  */
 static
 void flush_environment_loop(size_t const max) {
@@ -159,6 +174,8 @@ void flush_environment_loop(size_t const max) {
 
 /*
  *  MARK: flush_environment_recurse()
+ *
+ *  Burn some cycles. Recursive.
  */
 static
 void flush_environment_recurse(size_t const max, size_t limit) {

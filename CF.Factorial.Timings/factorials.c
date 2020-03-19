@@ -25,7 +25,7 @@ uint64_t fact_u64_iterative(uint64_t val, bool * oflow) {
   uint64_t fv = 1;
   bool overflow;
   bool overflowed;
-  overflow = overflowed = false;;
+  overflow = overflowed = false;
 
   for (uint64_t i_ = 1; i_ <= val ; ++i_) {
     uint64_t intermediate;
